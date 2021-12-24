@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<medicines>
+    <medicine name="Цитрамон" pharma="Компания 1" group="Обезболевоющее">
+        <analogs>
+            <analog>Парацетамол</analog>
+            <analog>Нурофен</analog>
+        </analogs>
+        <versions>
+            <version>Таблетки</version>
+            <version>Капсулы</version>
+        </versions>
+        <certificate number="1" issueDate="02.05.2020" expiryDate="02.10.2023" organization="Организация 1"/>
+        <package type="Капсулы" quantity="20" price="24.0"/>
+        <dosage amount="1" period="10"/>
+    </medicine>
+    <medicine name="Нурофен" pharma="Компания 2" group="Жаропонижающее">
+        <analogs>
+        </analogs>
+        <versions>
+            <version>Таблетки</version>
+            <version>Капсулы</version>
+        </versions>
+        <certificate number="2" issueDate="18.10.2019" expiryDate="18.01.2024" organization="Организация 2"/>
+        <package quantity="10" price="15.0"/>
+        <dosage/>
+    </medicine>
+</medicines>
