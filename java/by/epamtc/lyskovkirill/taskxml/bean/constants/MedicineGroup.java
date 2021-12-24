@@ -1,8 +1,10 @@
 package by.epamtc.lyskovkirill.taskxml.bean.constants;
 
 public enum MedicineGroup {
-    group("Обезболевоющее"),
-    group1("Жаропонижающее");
+    GROUP_1("Обезболевоющее"),
+    GROUP_2("Жаропонижающее"),
+    GROUP_3("Антибиотики"),
+    GROUP_4("Витамины");
 
     private String name;
 

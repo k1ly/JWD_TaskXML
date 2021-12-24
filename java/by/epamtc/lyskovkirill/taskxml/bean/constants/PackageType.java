@@ -1,8 +1,10 @@
 package by.epamtc.lyskovkirill.taskxml.bean.constants;
 
 public enum PackageType {
-    type("Таблетки"),
-    type1("Капсулы");
+    TYPE_1("Таблетки"),
+    TYPE_2("Капсулы"),
+    TYPE_3("Порошок"),
+    TYPE_4("Капли");
 
     private String name;
 

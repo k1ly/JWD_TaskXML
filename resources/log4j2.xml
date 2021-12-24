@@ -1,23 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Configuration status="WARN" name="TaskXML">
+<Configuration status="warn" name="TaskXML">
     <Appenders>
         <Console name="Console" target="SYSTEM_OUT">
-            <PatternLayout pattern="%d{HH:mm:ss} [%t] %-5level %logger{36} - %msg%n"/>
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{16} - %msg%n"/>
         </Console>
-        <File name="LogFile" fileName="log/TaskXML.log">
-            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        <File name="File" fileName="../logs/TaskXML.log">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{16} - %msg%n"/>
         </File>
-        <Async name="Async">
-            <AppenderRef ref="LogFile"/>
-        </Async>
     </Appenders>
     <Loggers>
-        <Logger name="by.epamtc.lyskovkirill.taskxml.Main" level="all">
-            <AppenderRef ref="LogFile"/>
-            <AppenderRef ref="Console"/>
-        </Logger>
-        <Root level="all">
-            <AppenderRef ref="Console"/>
+        <Root level="all" additivity="false">
+            <AppenderRef ref="File"/>
         </Root>
     </Loggers>
 </Configuration>

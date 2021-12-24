@@ -1,27 +1,102 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <medicines>
-    <medicine name="Цитрамон" pharma="Компания 1" group="Обезболевоющее">
+    <medicine name="Цитрамон" pharma="Компания 1" group="Жаропонижающее">
         <analogs>
-            <analog>Парацетамол</analog>
             <analog>Нурофен</analog>
         </analogs>
         <versions>
             <version>Таблетки</version>
             <version>Капсулы</version>
+            <version>Порошок</version>
+            <version>Капли</version>
         </versions>
-        <certificate number="1" issueDate="02.05.2020" expiryDate="02.10.2023" organization="Организация 1"/>
+        <certificate number="1" issueDate="10.05.2020" expiryDate="10.10.2023" organization="Организация 1"/>
         <package type="Капсулы" quantity="20" price="24.0"/>
-        <dosage amount="1" period="10"/>
+        <dosage amount="1" period="14"/>
     </medicine>
-    <medicine name="Нурофен" pharma="Компания 2" group="Жаропонижающее">
+    <medicine name="Нурофен" pharma="Компания 2" group="Витамины">
+        <analogs>
+            <analog>Цитрамон</analog>
+        </analogs>
+        <versions>
+            <version>Порошок</version>
+            <version>Капли</version>
+        </versions>
+        <certificate number="2" issueDate="02.04.2017" expiryDate="02.01.2022" organization="Организация 2"/>
+        <package type="Порошок" quantity="40" price="15.0"/>
+        <dosage amount="1.5" period="20"/>
+    </medicine>
+    <medicine name="Кагоцел" pharma="Компания 3" group="Обезболевоющее">
+        <analogs>
+        </analogs>
+        <versions>
+            <version>Таблетки</version>
+            <version>Капсулы</version>
+            <version>Капли</version>
+        </versions>
+        <certificate number="3" issueDate="18.12.2019" expiryDate="18.06.2025" organization="Организация 3"/>
+        <package type="Капли" quantity="25" price="35.0"/>
+        <dosage amount="1" period="30"/>
+    </medicine>
+    <medicine name="Терафлю" pharma="Компания 4" group="Антибиотики">
+        <analogs>
+            <analog>АЦЦ</analog>
+            <analog>Кагоцел</analog>
+        </analogs>
+        <versions>
+            <version>Порошок</version>
+        </versions>
+        <certificate number="4" issueDate="25.04.2020" expiryDate="25.07.2024" organization="Организация 4"/>
+        <package type="Порошок" quantity="30" price="12.0"/>
+        <dosage/>
+    </medicine>
+    <medicine name="АЦЦ" pharma="Компания 5" group="Антибиотики">
+        <analogs>
+            <analog>Терафлю</analog>
+            <analog>Кагоцел</analog>
+        </analogs>
+        <versions>
+            <version>Таблетки</version>
+            <version>Порошок</version>
+        </versions>
+        <certificate number="5" issueDate="19.02.2021" expiryDate="19.09.2025" organization="Организация 5"/>
+        <package type="Таблетки" quantity="20" price="14.0"/>
+        <dosage/>
+    </medicine>
+    <medicine name="Кардиомагнил" pharma="Компания 6" group="Витамины">
         <analogs>
         </analogs>
         <versions>
             <version>Таблетки</version>
             <version>Капсулы</version>
         </versions>
-        <certificate number="2" issueDate="18.10.2019" expiryDate="18.01.2024" organization="Организация 2"/>
-        <package quantity="10" price="15.0"/>
+        <certificate number="6" issueDate="06.09.2021" expiryDate="06.12.2024" organization="Организация 6"/>
+        <package type="Капсулы" quantity="10" price="21.0"/>
+        <dosage amount="0.5" period="90"/>
+    </medicine>
+    <medicine name="Мексидол" pharma="Компания 7" group="Обезболевоющее">
+        <analogs>
+        </analogs>
+        <versions>
+            <version>Таблетки</version>
+            <version>Капсулы</version>
+            <version>Порошок</version>
+            <version>Капли</version>
+        </versions>
+        <certificate number="7" issueDate="13.10.2018" expiryDate="13.03.2021" organization="Организация 7"/>
+        <package quantity="15" price="26.0"/>
+        <dosage amount="2" period="21"/>
+    </medicine>
+    <medicine name="Мирамистин" pharma="Компания 8" group="Жаропонижающее">
+        <analogs>
+        </analogs>
+        <versions>
+            <version>Таблетки</version>
+            <version>Порошок</version>
+            <version>Капли</version>
+        </versions>
+        <certificate number="8" issueDate="24.05.2018" expiryDate="24.01.2022" organization="Организация 8"/>
+        <package type="Капли" quantity="20" price="32.0"/>
         <dosage/>
     </medicine>
 </medicines>

@@ -1,98 +1,120 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<schema xmlns="http://www.w3.org/2001/XMLSchema">
-    <element name="medicines">
-        <complexType>
-            <sequence>
-                <element name="medicine" maxOccurs="unbounded">
-                    <complexType>
-                        <sequence>
-                            <element name="analogs">
-                                <complexType>
-                                    <sequence>
-                                        <element name="analog" minOccurs="0" maxOccurs="unbounded" type="string"/>
-                                    </sequence>
-                                </complexType>
-                            </element>
-                            <element name="versions">
-                                <complexType>
-                                    <sequence>
-                                        <element name="version" maxOccurs="unbounded">
-                                            <simpleType>
-                                                <restriction base="string">
-                                                    <enumeration value="Таблетки"/>
-                                                    <enumeration value="Капсулы"/>
-                                                </restriction>
-                                            </simpleType>
-                                        </element>
-                                    </sequence>
-                                </complexType>
-                            </element>
-                            <element name="certificate">
-                                <complexType>
-                                    <attribute name="issueDate" use="required">
-                                        <simpleType>
-                                            <restriction base="string">
-                                                <pattern value="\d{2}\.\d{2}\.[0-2]\d{3}"/>
-                                            </restriction>
-                                        </simpleType>
-                                    </attribute>
-                                    <attribute name="expiryDate" use="required">
-                                        <simpleType>
-                                            <restriction base="string">
-                                                <pattern value="\d{2}\.\d{2}\.[0-2]\d{3}"/>
-                                            </restriction>
-                                        </simpleType>
-                                    </attribute>
-                                    <attribute name="number" use="required" type="positiveInteger"/>
-                                    <attribute name="organization" use="required" type="string"/>
-                                </complexType>
-                            </element>
-                            <element name="package">
-                                <complexType>
-                                    <attribute name="type" default="Таблетки">
-                                        <simpleType>
-                                            <restriction base="string">
-                                                <enumeration value="Таблетки"/>
-                                                <enumeration value="Капсулы"/>
-                                            </restriction>
-                                        </simpleType>
-                                    </attribute>
-                                    <attribute name="quantity" use="required" type="positiveInteger"/>
-                                    <attribute name="price" use="required">
-                                        <simpleType>
-                                            <restriction base="float">
-                                                <minInclusive value="0"/>
-                                            </restriction>
-                                        </simpleType>
-                                    </attribute>
-                                </complexType>
-                            </element>
-                            <element name="dosage">
-                                <complexType>
-                                    <attribute name="amount" default="0">
-                                        <simpleType>
-                                            <restriction base="float">
-                                                <minInclusive value="0"/>
-                                            </restriction>
-                                        </simpleType>
-                                    </attribute>
-                                    <attribute name="period" default="0" type="nonNegativeInteger"/>
-                                </complexType>
-                            </element>
-                        </sequence>
-                        <attribute name="name" use="required" type="ID"/>
-                        <attribute name="pharma" use="required" type="string"/>
-                        <attribute name="group" use="required">
-                            <simpleType>
-                                <restriction base="string">
-                                    <enumeration value="Обезболевоющее"/>
-                                    <enumeration value="Жаропонижающее"/>
-                                </restriction>
-                            </simpleType>
-                        </attribute>
-                    </complexType>
-                </element>
-            </sequence>
-        </complexType>
-    </element>
-</schema>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:element name="medicines">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="medicine" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="medicine">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="analogs"/>
+                <xs:element ref="versions"/>
+                <xs:element ref="certificate"/>
+                <xs:element ref="package"/>
+                <xs:element ref="dosage"/>
+            </xs:sequence>
+            <xs:attribute name="name" use="required" type="xs:ID"/>
+            <xs:attribute name="pharma" use="required" type="xs:string"/>
+            <xs:attribute name="group" use="required">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="Обезболевоющее"/>
+                        <xs:enumeration value="Жаропонижающее"/>
+                        <xs:enumeration value="Антибиотики"/>
+                        <xs:enumeration value="Витамины"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:attribute>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="analogs">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="analog" minOccurs="0" maxOccurs="unbounded" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="versions">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="version" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="version">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:enumeration value="Таблетки"/>
+                <xs:enumeration value="Капсулы"/>
+                <xs:enumeration value="Порошок"/>
+                <xs:enumeration value="Капли"/>
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>
+
+    <xs:element name="certificate">
+        <xs:complexType>
+            <xs:attribute name="issueDate" use="required">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="\d{2}\.\d{2}\.[0-2]\d{3}"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:attribute>
+            <xs:attribute name="expiryDate" use="required">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="\d{2}\.\d{2}\.[0-2]\d{3}"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:attribute>
+            <xs:attribute name="number" use="required" type="xs:positiveInteger"/>
+            <xs:attribute name="organization" use="required" type="xs:string"/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="package">
+        <xs:complexType>
+            <xs:attribute name="type" default="Таблетки">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="Таблетки"/>
+                        <xs:enumeration value="Капсулы"/>
+                        <xs:enumeration value="Порошок"/>
+                        <xs:enumeration value="Капли"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:attribute>
+            <xs:attribute name="quantity" use="required" type="xs:positiveInteger"/>
+            <xs:attribute name="price" use="required">
+                <xs:simpleType>
+                    <xs:restriction base="xs:float">
+                        <xs:minInclusive value="0"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:attribute>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="dosage">
+        <xs:complexType>
+            <xs:attribute name="amount" default="0">
+                <xs:simpleType>
+                    <xs:restriction base="xs:float">
+                        <xs:minInclusive value="0"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:attribute>
+            <xs:attribute name="period" default="0" type="xs:nonNegativeInteger"/>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>

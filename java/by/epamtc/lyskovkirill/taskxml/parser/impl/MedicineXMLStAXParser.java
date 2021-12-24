@@ -83,7 +83,7 @@ public class MedicineXMLStAXParser implements XMLParser<Medicine> {
                         case "package":
                             packageBuilder = new PackageBuilder();
                             Attribute packageType = startElement.getAttributeByName(QName.valueOf("type"));
-                            packageBuilder.withType(packageType != null ? PackageType.getTypeByName(packageType.getValue()) : PackageType.type);
+                            packageBuilder.withType(packageType != null ? PackageType.getTypeByName(packageType.getValue()) : PackageType.TYPE_1);
                             packageBuilder.withQuantity(Integer.parseInt(startElement.getAttributeByName(QName.valueOf("quantity")).getValue()));
                             packageBuilder.withPrice(Double.parseDouble(startElement.getAttributeByName(QName.valueOf("price")).getValue()));
                             break;

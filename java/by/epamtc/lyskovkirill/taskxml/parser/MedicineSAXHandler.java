@@ -64,7 +64,7 @@ public class MedicineSAXHandler extends DefaultHandler {
             case "package":
                 packageBuilder = new PackageBuilder();
                 String packageType = attributes.getValue("type");
-                packageBuilder.withType(packageType != null ? PackageType.getTypeByName(packageType) : PackageType.type);
+                packageBuilder.withType(packageType != null ? PackageType.getTypeByName(packageType) : PackageType.TYPE_1);
                 packageBuilder.withQuantity(Integer.parseInt(attributes.getValue("quantity")));
                 packageBuilder.withPrice(Double.parseDouble(attributes.getValue("price")));
                 break;

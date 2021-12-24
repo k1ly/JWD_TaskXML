@@ -12,6 +12,8 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.Part;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
 import java.util.List;
@@ -36,6 +38,7 @@ public class ParseXMLCommand implements by.epamtc.lyskovkirill.taskxml.command.C
 
         String contentType = request.getContentType();
         if (contentType != null && contentType.contains(MULTIPART_CONTENT_TYPE)) {
+            Logger logger = LogManager.getLogger();
             try {
                 Part xmlFilePart = request.getPart(XML_FILE);
                 Part xsdFilePart = request.getPart(XSD_FILE);
@@ -44,6 +47,7 @@ public class ParseXMLCommand implements by.epamtc.lyskovkirill.taskxml.command.C
                     XMLValidator validator = new XMLValidator();
                     validator.validateXML(xmlFilePart, xsdFilePart);
                     notCheckedXML = false;
+                    logger.info("XML файл успешно прошел валидацию");
                 }
 
                 XMLParser<Medicine> parser = null;
@@ -60,12 +64,12 @@ public class ParseXMLCommand implements by.epamtc.lyskovkirill.taskxml.command.C
                 }
                 if (parser != null)
                     resultList = parser.parseXML(xmlFilePart);
-
+                logger.info("XML файл успешно прошел парсинг");
             } catch (ServletException | IOException e) {
+                logger.error("Ошибка чтения загруженного файла!");
                 throw new RuntimeException("Ошибка чтения загруженного файла", e);
             }
         }
-
         request.setAttribute(RESULT_LIST, resultList);
         request.setAttribute(PARSER, request.getParameter(PARSER));
         request.setAttribute(NOT_CHECKED_XML, notCheckedXML);

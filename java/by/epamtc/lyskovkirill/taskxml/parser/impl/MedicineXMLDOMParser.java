@@ -84,7 +84,7 @@ public class MedicineXMLDOMParser implements XMLParser<Medicine> {
             Element packageElement = (Element) medicineElement.getElementsByTagName("package").item(0);
 
             String packageType = packageElement.getAttribute("type");
-            packageBuilder.withType(!packageType.isEmpty() ? PackageType.getTypeByName(packageType) : PackageType.type);
+            packageBuilder.withType(!packageType.isEmpty() ? PackageType.getTypeByName(packageType) : PackageType.TYPE_1);
             packageBuilder.withQuantity(Integer.parseInt(packageElement.getAttribute("quantity")));
             packageBuilder.withPrice(Double.parseDouble(packageElement.getAttribute("price")));
 
