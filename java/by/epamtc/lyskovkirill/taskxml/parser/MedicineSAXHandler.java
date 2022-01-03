@@ -19,7 +19,7 @@ import java.util.List;
 
 public class MedicineSAXHandler extends DefaultHandler {
     private String elementName = "";
-    private List<Medicine> medicineList;
+    private final List<Medicine> medicineList;
 
     private MedicineBuilder medicineBuilder;
     private List<String> analogs;

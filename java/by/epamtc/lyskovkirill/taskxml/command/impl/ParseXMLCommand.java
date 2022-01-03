@@ -1,6 +1,7 @@
 package by.epamtc.lyskovkirill.taskxml.command.impl;
 
 import by.epamtc.lyskovkirill.taskxml.bean.Medicine;
+import by.epamtc.lyskovkirill.taskxml.command.Command;
 import by.epamtc.lyskovkirill.taskxml.command.CommandResult;
 import by.epamtc.lyskovkirill.taskxml.controller.page.Page;
 import by.epamtc.lyskovkirill.taskxml.parser.XMLParser;
@@ -18,7 +19,7 @@ import org.apache.logging.log4j.Logger;
 import java.io.IOException;
 import java.util.List;
 
-public class ParseXMLCommand implements by.epamtc.lyskovkirill.taskxml.command.Command {
+public class ParseXMLCommand implements Command {
     private final static String MULTIPART_CONTENT_TYPE = "multipart/form-data";
     private final static String XML_FILE = "xml_file";
     private final static String XSD_FILE = "xsd_file";
